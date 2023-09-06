@@ -1,0 +1,119 @@
+# The Caddyfile is an easy way to configure your Caddy web server.
+#
+# Unless the file starts with a global options block, the first
+# uncommented line is always the address of your site.
+#
+# To use your own domain name (with automatic HTTPS), first make
+# sure your domain's A/AAAA DNS records are properly pointed to
+# this machine's public IP, then replace ":80" below with your
+# domain name.
+#
+:7999 :8000 :8001 {
+	bind localhost
+	# these are the other files in this directory
+	root * /usr/share/caddy/www
+
+	# Enable the static file server.
+	file_server browse
+}
+
+lab.neon.rocks {
+	handle_path /0/* {
+		# setup early hint responses (unfortunatly I haven't found a way of not repeating this three times yet, good for now)
+		route /eh/images.html {
+			header  Link "</100/eh/2014_K%C5%82odzko,_most_gotycki.jpg.webp>; rel=preload; as=image,</100/eh/Stanford_Memorial_Church_October_2019_HDR.jpg.webp>; rel=preload; as=image,</100/eh/Aerial_view_of_Somapura_Mahavihara.jpg.webp>; rel=preload; as=image,</100/eh/style.css>;rel=preload;as=style"
+			respond 103
+		}
+		route /eh/images-1000.html {
+			header  Link "</1000/eh/2014_K%C5%82odzko,_most_gotycki.jpg.webp>; rel=preload; as=image,</1000/eh/Stanford_Memorial_Church_October_2019_HDR.jpg.webp>; rel=preload; as=image,</1000/eh/Aerial_view_of_Somapura_Mahavihara.jpg.webp>; rel=preload; as=image,</1000/eh/style.css>;rel=preload;as=style"
+			respond 103
+		}
+		route /eh/images-100.html {
+			header  Link "</100/eh/2014_K%C5%82odzko,_most_gotycki.jpg.webp>; rel=preload; as=image,</100/eh/Stanford_Memorial_Church_October_2019_HDR.jpg.webp>; rel=preload; as=image,</100/eh/Aerial_view_of_Somapura_Mahavihara.jpg.webp>; rel=preload; as=image,</100/eh/style.css>;rel=preload;as=style"
+			respond 103
+		}
+		route /eh/images-0.html {
+			header  Link "</0/eh/2014_K%C5%82odzko,_most_gotycki.jpg.webp>; rel=preload; as=image,</0/eh/Stanford_Memorial_Church_October_2019_HDR.jpg.webp>; rel=preload; as=image,</0/eh/Aerial_view_of_Somapura_Mahavihara.jpg.webp>; rel=preload; as=image,</0/eh/style.css>;rel=preload;as=style"
+			respond 103
+		}
+		route /eh/images-large.html {
+			header  Link "</0/eh/2014_K%C5%82odzko,_most_gotycki.jpg>; rel=preload; as=image,</0/eh/Stanford_Memorial_Church_October_2019_HDR.jpg>; rel=preload; as=image,</0/eh/Aerial_view_of_Somapura_Mahavihara.jpg.webp>; rel=preload; as=image,</0/eh/style.css>;rel=preload;as=style"
+			respond 103
+		}
+		route /eh/images-preconnect.html {
+			header  Link "<https://upload.wikimedia.org>; rel=preconnect"
+			respond 103
+		}
+
+		reverse_proxy :7999
+	}
+	handle_path /100/* {
+		route /eh/images.html {
+			header  Link "</100/eh/2014_K%C5%82odzko,_most_gotycki.jpg.webp>; rel=preload; as=image,</100/eh/Stanford_Memorial_Church_October_2019_HDR.jpg.webp>; rel=preload; as=image,</100/eh/Aerial_view_of_Somapura_Mahavihara.jpg.webp>; rel=preload; as=image,</100/eh/style.css>;rel=preload;as=style"
+			respond 103
+		}
+		route /eh/images-1000.html {
+			header  Link "</1000/eh/2014_K%C5%82odzko,_most_gotycki.jpg.webp>; rel=preload; as=image,</1000/eh/Stanford_Memorial_Church_October_2019_HDR.jpg.webp>; rel=preload; as=image,</1000/eh/Aerial_view_of_Somapura_Mahavihara.jpg.webp>; rel=preload; as=image,</1000/eh/style.css>;rel=preload;as=style"
+			respond 103
+		}
+		route /eh/images-100.html {
+			header  Link "</100/eh/2014_K%C5%82odzko,_most_gotycki.jpg.webp>; rel=preload; as=image,</100/eh/Stanford_Memorial_Church_October_2019_HDR.jpg.webp>; rel=preload; as=image,</100/eh/Aerial_view_of_Somapura_Mahavihara.jpg.webp>; rel=preload; as=image,</100/eh/style.css>;rel=preload;as=style"
+			respond 103
+		}
+		route /eh/images-0.html {
+			header  Link "</0/eh/2014_K%C5%82odzko,_most_gotycki.jpg.webp>; rel=preload; as=image,</0/eh/Stanford_Memorial_Church_October_2019_HDR.jpg.webp>; rel=preload; as=image,</0/eh/Aerial_view_of_Somapura_Mahavihara.jpg.webp>; rel=preload; as=image,</0/eh/style.css>;rel=preload;as=style"
+			respond 103
+		}
+		route /eh/images-large.html {
+			header  Link "</0/eh/2014_K%C5%82odzko,_most_gotycki.jpg>; rel=preload; as=image,</0/eh/Stanford_Memorial_Church_October_2019_HDR.jpg>; rel=preload; as=image,</0/eh/Aerial_view_of_Somapura_Mahavihara.jpg.webp>; rel=preload; as=image,</0/eh/style.css>;rel=preload;as=style"
+			respond 103
+		}
+		route /eh/images-preconnect.html {
+			header  Link "<https://upload.wikimedia.org>; rel=preconnect"
+			respond 103
+		}
+
+		reverse_proxy :8000
+	}
+	handle_path /1000/* {
+		route /eh/images.html {
+			header  Link "</100/eh/2014_K%C5%82odzko,_most_gotycki.jpg.webp>; rel=preload; as=image,</100/eh/Stanford_Memorial_Church_October_2019_HDR.jpg.webp>; rel=preload; as=image,</100/eh/Aerial_view_of_Somapura_Mahavihara.jpg.webp>; rel=preload; as=image,</100/eh/style.css>;rel=preload;as=style"
+			respond 103
+		}
+		route /eh/images-1000.html {
+			header  Link "</1000/eh/2014_K%C5%82odzko,_most_gotycki.jpg.webp>; rel=preload; as=image,</1000/eh/Stanford_Memorial_Church_October_2019_HDR.jpg.webp>; rel=preload; as=image,</1000/eh/Aerial_view_of_Somapura_Mahavihara.jpg.webp>; rel=preload; as=image,</1000/eh/style.css>;rel=preload;as=style"
+			respond 103
+		}
+		route /eh/images-100.html {
+			header  Link "</100/eh/2014_K%C5%82odzko,_most_gotycki.jpg.webp>; rel=preload; as=image,</100/eh/Stanford_Memorial_Church_October_2019_HDR.jpg.webp>; rel=preload; as=image,</100/eh/Aerial_view_of_Somapura_Mahavihara.jpg.webp>; rel=preload; as=image,</100/eh/style.css>;rel=preload;as=style"
+			respond 103
+		}
+		route /eh/images-0.html {
+			header  Link "</0/eh/2014_K%C5%82odzko,_most_gotycki.jpg.webp>; rel=preload; as=image,</0/eh/Stanford_Memorial_Church_October_2019_HDR.jpg.webp>; rel=preload; as=image,</0/eh/Aerial_view_of_Somapura_Mahavihara.jpg.webp>; rel=preload; as=image,</0/eh/style.css>;rel=preload;as=style"
+			respond 103
+		}
+		route /eh/images-large.html {
+			header  Link "</0/eh/2014_K%C5%82odzko,_most_gotycki.jpg>; rel=preload; as=image,</0/eh/Stanford_Memorial_Church_October_2019_HDR.jpg>; rel=preload; as=image,</0/eh/Aerial_view_of_Somapura_Mahavihara.jpg.webp>; rel=preload; as=image,</0/eh/style.css>;rel=preload;as=style"
+			respond 103
+		}
+		route /eh/images-preconnect.html {
+			header  Link "<https://upload.wikimedia.org>; rel=preconnect"
+			respond 103
+		}
+
+		reverse_proxy :8001
+	}
+	root * /usr/share/caddy/www2
+	file_server
+	header {
+		# disable caching for easier testing
+                Cache-Control no-store
+                -Etag
+                -Last-Modified
+		-Server
+        }
+}
+
+# Refer to the Caddy docs for more information:
+# https://caddyserver.com/docs/caddyfile
+
