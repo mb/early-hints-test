@@ -7,7 +7,6 @@
 # sure your domain's A/AAAA DNS records are properly pointed to
 # this machine's public IP, then replace ":80" below with your
 # domain name.
-#
 :7999 :8000 :8001 {
 	bind localhost
 	# these are the other files in this directory
@@ -16,8 +15,14 @@
 	# Enable the static file server.
 	file_server browse
 }
-
+lab-ipv6-100ms.neon.rocks {
+	bind 2a03:4000:66:c4a::3
+	root * /usr/share/caddy/www
+	file_server browse
+}
 lab.neon.rocks {
+	bind 2a03:4000:66:c4a::2
+	bind 89.58.41.211
 	handle_path /0/* {
 		# setup early hint responses (unfortunatly I haven't found a way of not repeating this three times yet, good for now)
 		route /eh/images.html {
@@ -42,6 +47,10 @@ lab.neon.rocks {
 		}
 		route /eh/images-preconnect.html {
 			header  Link "<https://upload.wikimedia.org>; rel=preconnect"
+			respond 103
+		}
+		route /eh/images-preconnect-100.html {
+			header  Link "<https://lab-ipv6-100ms.neon.rocks>; rel=preconnect"
 			respond 103
 		}
 
