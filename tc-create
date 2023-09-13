@@ -1,0 +1,16 @@
+#!/bin/bash
+# Create a single root qdisc on the loopback interface
+tc qdisc add dev lo root handle 1: prio priomap 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+# Configure delay for port 8000 (100ms) on lo
+tc qdisc add dev lo parent 1:2 handle 20: netem delay 100ms
+tc filter add dev lo protocol ip parent 1: prio 1 u32 match ip sport 8000 0xffff flowid 1:2
+
+# Configure delay for port 8001 (1000ms) on lo
+tc qdisc add dev lo parent 1:3 handle 30: netem delay 1000ms
+tc filter add dev lo protocol ip parent 1: prio 1 u32 match ip sport 8001 0xffff flowid 1:3
+
+# Configure delay for port 8002 (3000ms) on lo
+#tc qdisc add dev lo parent 1:4 handle 40: netem delay 3000ms
+#tc filter add dev lo protocol ip parent 1: prio 1 u32 match ip sport 8002 0xffff flowid 1:4
+

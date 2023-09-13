@@ -1,0 +1,4 @@
+#!/bin/bash
+# Remove qdiscs and filters for all ports on lo
+sudo tc qdisc del dev lo root handle 1:
+
