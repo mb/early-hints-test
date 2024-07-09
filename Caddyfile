@@ -10,14 +10,14 @@
 :7999 :8000 :8001 {
 	bind localhost
 	# these are the other files in this directory
-	root * /usr/share/caddy/www
+	root * /home/user/early-hints-test/eh
 
 	# Enable the static file server.
 	file_server browse
 }
 lab-ipv6-100ms.neon.rocks {
 	bind 2a03:4000:66:c4a::3
-	root * /usr/share/caddy/www
+	root * /home/user/early-hints-test/eh
 	file_server browse
 }
 lab.neon.rocks {
@@ -120,7 +120,7 @@ lab.neon.rocks {
 
 		reverse_proxy :8001
 	}
-	root * /usr/share/caddy/www2
+	root * /home/user/early-hints-test/lab
 	file_server
 	header {
 		# disable caching for easier testing
