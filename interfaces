@@ -1,0 +1,29 @@
+# /etc/network/interfaces.d/web-server
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet static
+    address 89.58.41.211/22
+    gateway 89.58.40.1
+
+iface eth0 inet6 static
+    address 2a03:4000:66:c4a:b863:e6ff:fef8:4126/64
+    gateway fe80::1
+
+iface eth0 inet6 static
+    address 2a03:4000:66:c4a::1/64
+    gateway fe80::1
+
+iface eth0 inet6 static
+    address 2a03:4000:66:c4a::2/64
+    gateway fe80::1
+
+iface eth0 inet6 static
+    address 2a03:4000:66:c4a::3/64
+    gateway fe80::1
+
+iface eth0 inet6 static
+    address 2a03:4000:66:c4a::4/64
+    gateway fe80::1
+

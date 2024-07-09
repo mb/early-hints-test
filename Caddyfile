@@ -81,6 +81,10 @@ lab.neon.rocks {
 			header  Link "<https://upload.wikimedia.org>; rel=preconnect"
 			respond 103
 		}
+		route /eh/images-preconnect-100.html {
+			header  Link "<https://lab-ipv6-100ms.neon.rocks>; rel=preconnect"
+			respond 103
+		}
 
 		reverse_proxy :8000
 	}
@@ -107,6 +111,10 @@ lab.neon.rocks {
 		}
 		route /eh/images-preconnect.html {
 			header  Link "<https://upload.wikimedia.org>; rel=preconnect"
+			respond 103
+		}
+		route /eh/images-preconnect-100.html {
+			header  Link "<https://lab-ipv6-100ms.neon.rocks>; rel=preconnect"
 			respond 103
 		}
 
