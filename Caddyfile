@@ -10,14 +10,14 @@
 :7999 :8000 :8001 {
 	bind localhost
 	# these are the other files in this directory
-	root * /home/user/early-hints-test/eh
+	root * /home/user/early-hints-test/web
 
 	# Enable the static file server.
 	file_server browse
 }
 lab-ipv6-100ms.neon.rocks {
 	bind 2a03:4000:66:c4a::3
-	root * /home/user/early-hints-test/eh
+	root * /home/user/early-hints-test/web
 	file_server browse
 }
 lab.neon.rocks {
@@ -129,6 +129,206 @@ lab.neon.rocks {
                 -Last-Modified
 		-Server
         }
+respond /status/400 400
+respond /status/401 401
+respond /status/402 402
+respond /status/403 403
+respond /status/404 404
+respond /status/405 405
+respond /status/406 406
+respond /status/407 407
+respond /status/408 408
+respond /status/409 409
+respond /status/410 410
+respond /status/411 411
+respond /status/412 412
+respond /status/413 413
+respond /status/414 414
+respond /status/415 415
+respond /status/416 416
+respond /status/417 417
+respond /status/418 418
+respond /status/419 419
+respond /status/420 420
+respond /status/421 421
+respond /status/422 422
+respond /status/423 423
+respond /status/424 424
+respond /status/425 425
+respond /status/426 426
+respond /status/427 427
+respond /status/428 428
+respond /status/429 429
+respond /status/430 430
+respond /status/431 431
+respond /status/432 432
+respond /status/433 433
+respond /status/434 434
+respond /status/435 435
+respond /status/436 436
+respond /status/437 437
+respond /status/438 438
+respond /status/439 439
+respond /status/440 440
+respond /status/441 441
+respond /status/442 442
+respond /status/443 443
+respond /status/444 444
+respond /status/445 445
+respond /status/446 446
+respond /status/447 447
+respond /status/448 448
+respond /status/449 449
+respond /status/450 450
+respond /status/451 451
+respond /status/452 452
+respond /status/453 453
+respond /status/454 454
+respond /status/455 455
+respond /status/456 456
+respond /status/457 457
+respond /status/458 458
+respond /status/459 459
+respond /status/460 460
+respond /status/461 461
+respond /status/462 462
+respond /status/463 463
+respond /status/464 464
+respond /status/465 465
+respond /status/466 466
+respond /status/467 467
+respond /status/468 468
+respond /status/469 469
+respond /status/470 470
+respond /status/471 471
+respond /status/472 472
+respond /status/473 473
+respond /status/474 474
+respond /status/475 475
+respond /status/476 476
+respond /status/477 477
+respond /status/478 478
+respond /status/479 479
+respond /status/480 480
+respond /status/481 481
+respond /status/482 482
+respond /status/483 483
+respond /status/484 484
+respond /status/485 485
+respond /status/486 486
+respond /status/487 487
+respond /status/488 488
+respond /status/489 489
+respond /status/490 490
+respond /status/491 491
+respond /status/492 492
+respond /status/493 493
+respond /status/494 494
+respond /status/495 495
+respond /status/496 496
+respond /status/497 497
+respond /status/498 498
+respond /status/499 499
+respond /status/500 500
+respond /status/501 501
+respond /status/502 502
+respond /status/503 503
+respond /status/504 504
+respond /status/505 505
+respond /status/506 506
+respond /status/507 507
+respond /status/508 508
+respond /status/509 509
+respond /status/510 510
+respond /status/511 511
+respond /status/512 512
+respond /status/513 513
+respond /status/514 514
+respond /status/515 515
+respond /status/516 516
+respond /status/517 517
+respond /status/518 518
+respond /status/519 519
+respond /status/520 520
+respond /status/521 521
+respond /status/522 522
+respond /status/523 523
+respond /status/524 524
+respond /status/525 525
+respond /status/526 526
+respond /status/527 527
+respond /status/528 528
+respond /status/529 529
+respond /status/530 530
+respond /status/531 531
+respond /status/532 532
+respond /status/533 533
+respond /status/534 534
+respond /status/535 535
+respond /status/536 536
+respond /status/537 537
+respond /status/538 538
+respond /status/539 539
+respond /status/540 540
+respond /status/541 541
+respond /status/542 542
+respond /status/543 543
+respond /status/544 544
+respond /status/545 545
+respond /status/546 546
+respond /status/547 547
+respond /status/548 548
+respond /status/549 549
+respond /status/550 550
+respond /status/551 551
+respond /status/552 552
+respond /status/553 553
+respond /status/554 554
+respond /status/555 555
+respond /status/556 556
+respond /status/557 557
+respond /status/558 558
+respond /status/559 559
+respond /status/560 560
+respond /status/561 561
+respond /status/562 562
+respond /status/563 563
+respond /status/564 564
+respond /status/565 565
+respond /status/566 566
+respond /status/567 567
+respond /status/568 568
+respond /status/569 569
+respond /status/570 570
+respond /status/571 571
+respond /status/572 572
+respond /status/573 573
+respond /status/574 574
+respond /status/575 575
+respond /status/576 576
+respond /status/577 577
+respond /status/578 578
+respond /status/579 579
+respond /status/580 580
+respond /status/581 581
+respond /status/582 582
+respond /status/583 583
+respond /status/584 584
+respond /status/585 585
+respond /status/586 586
+respond /status/587 587
+respond /status/588 588
+respond /status/589 589
+respond /status/590 590
+respond /status/591 591
+respond /status/592 592
+respond /status/593 593
+respond /status/594 594
+respond /status/595 595
+respond /status/596 596
+respond /status/597 597
+respond /status/598 598
+respond /status/599 599
 }
 
 # Refer to the Caddy docs for more information:
